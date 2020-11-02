@@ -1,0 +1,6 @@
+# Build files generated during compilation
+**build
+
+# External folders that need to be ignored
+**.vscode
+
