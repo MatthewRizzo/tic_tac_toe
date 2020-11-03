@@ -9,7 +9,8 @@ using std::endl;
 
 
 int main(){
-    Board test;
-    cout << "The program works because test prints 5: " << test.getFoo() << endl;
+    Board test {5,5};
 
+    cout << test << endl;
+    // cout << test.getFillerRow() << endl;
 }

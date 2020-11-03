@@ -6,6 +6,8 @@ project(tic_tac_toe)
 # =================================== load Dependencies globally for all subdirs ===================================
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/src/cmake")
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Find the packages
 # find_package(BoostLib REQUIRED) # uses FindBoost.cmake in cmake dir
