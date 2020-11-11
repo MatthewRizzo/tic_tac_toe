@@ -22,5 +22,5 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}/src/includes") # contains OUR h
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin) # store produce binaries in src/bin/*
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
-# add more folders here as needed (i.e. game_logic/src)
-add_subdirectory(src/game_logic)
+# add more folders here as needed
+add_subdirectory(src/game_setup)
