@@ -13,9 +13,9 @@ using std::endl;
 
 TTTBoard::TTTBoard(int width, int length):
     boardLength(length), boardWidth(width),
+    board(getLength(),
+        std::vector<Piece>(getWidth(), Piece()))
 {
-    BoardInterface::board(getLength(),
-                std::vector<Piece>(getWidth(), Piece()) );
     setFillerRow();
 }
 
@@ -87,7 +87,7 @@ void TTTBoard::setFillerRow()
 
 bool TTTBoard::addPiece(Piece new_piece, int row, int col)
 {
-    BoardInterface::board[row][col] = new_piece;
+    board[row][col] = new_piece;
 }
 
 // Getter and setter functions

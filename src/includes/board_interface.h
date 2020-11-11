@@ -5,7 +5,6 @@
 class BoardInterface
 {
     public:
-        BoardInterface();
         virtual ~BoardInterface (){};
         virtual bool addPiece(Piece new_piece, int row, int col) = 0;
         virtual bool movePiece() = 0;
