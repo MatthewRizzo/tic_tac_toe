@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 2.8)
 project(src)
 
-add_library(BOARD
+add_library(TTT_BOARD
     piece.cpp
-    board.cpp
+    ttt_board.cpp
 )
 
 # Add  every file which are needed to make exe tic_tac_toe
@@ -12,7 +12,7 @@ add_executable(tic_tac_toe
 )
 
 target_link_libraries(tic_tac_toe
-    BOARD
+TTT_BOARD
     ${CMAKE_THREAD_LIBS_INIT}
 )
 

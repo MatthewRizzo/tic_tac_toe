@@ -1,4 +1,4 @@
-#include "board.h"
+#include "ttt_board.h"
 
 using std::cout;
 using std::endl;
@@ -11,21 +11,21 @@ using std::endl;
 //     map.resize(boardLength);
 // }
 
-Board::Board(int width, int length):
+TTTBoard::TTTBoard(int width, int length):
     boardLength(length), boardWidth(width),
-    map(getLength(), std::vector<Piece>(getWidth(), Piece()))
 {
+    BoardInterface::board(getLength(),
+                std::vector<Piece>(getWidth(), Piece()) );
     setFillerRow();
-    cout << "Done with constructor" <<endl;
 }
 
-Board::~Board()
+TTTBoard::~TTTBoard()
 {}
 
 /**
  * overload operator << for the board class. Used to display the board.
  */
-std::ostream& operator<<(std::ostream& out, const Board& board)
+std::ostream& operator<<(std::ostream& out, const TTTBoard& board)
 {
     std::string buffer_space(board.getCellWidth(), ' ');
 
@@ -67,7 +67,7 @@ std::ostream& operator<<(std::ostream& out, const Board& board)
 }
 
 
-void Board::setFillerRow()
+void TTTBoard::setFillerRow()
 {
     // Zero out the string
     fillerRow = "";
@@ -85,19 +85,24 @@ void Board::setFillerRow()
 
 }
 
+bool TTTBoard::addPiece(Piece new_piece, int row, int col)
+{
+    BoardInterface::board[row][col] = new_piece;
+}
+
 // Getter and setter functions
-int Board::getCellWidth() const {
+int TTTBoard::getCellWidth() const {
     return cellWidth;
 }
 
-int Board::getLength() const {
+int TTTBoard::getLength() const {
     return boardLength;
 }
 
-int Board::getWidth() const {
+int TTTBoard::getWidth() const {
     return boardWidth;
 }
 
-std::string Board::getFillerRow() const {
+std::string TTTBoard::getFillerRow() const {
     return fillerRow;
 }

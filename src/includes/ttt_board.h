@@ -12,11 +12,12 @@
 // Project Includes
 #include "const.h"
 #include "piece.h"
+#include "board_interface.h"
 
 #define DEFAULT_LENGTH 3
 #define DEFAULT_WIDTH 3
 
-class Board
+class TTTBoard : public BoardInterface
 {
     private:
         // width is horizontal
@@ -31,23 +32,29 @@ class Board
 
         // Stores the status of the board
         // in a 2D vector of char's
-        std::vector< std::vector<Piece> > map;
 
         // preformat's the string of in between layers
         void setFillerRow();
+        std::vector< std::vector<Piece> > board;
 
     public:
         // Constructor options
-        Board(int width = DEFAULT_WIDTH, int length = DEFAULT_LENGTH);
-        ~Board();
+        TTTBoard(int width = DEFAULT_WIDTH, int length = DEFAULT_LENGTH);
+        ~TTTBoard();
 
-        friend std::ostream& operator<<(std::ostream& out, const Board& board);
+        friend std::ostream& operator<<(std::ostream& out, const TTTBoard& board);
 
         // Getter functions
-        int getCellWidth() const;
-        int getLength() const;
-        int getWidth () const;
+        int getCellWidth() const override;
+        int getLength() const override;
+        int getWidth () const override;
         std::string getFillerRow() const;
+
+        // Functions to manage the board
+        bool addPiece(Piece new_piece, int row, int col) override;
+
+        // For tic tax toe, moving is not required
+        bool movePiece() override {};
 };
 
 #endif
